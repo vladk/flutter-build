@@ -1,3 +1,8 @@
 # flutter-build
 Docker image to run/build/test Flutter
-Usage: docker pull kvlad/flutter-build
+
+## How to use
+
+```
+docker pull kvlad/flutter-build
+```
