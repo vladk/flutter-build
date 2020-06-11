@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 
-ENV FLUTTER_CHANNEL=dev
-ENV FLUTTER_VERSION=1.20.0-0.0.pre-${FLUTTER_CHANNEL}
+ENV FLUTTER_CHANNEL=stable
+ENV FLUTTER_VERSION=1.17.3-${FLUTTER_CHANNEL}
 
 WORKDIR /
 
@@ -23,4 +23,3 @@ RUN flutter config  --no-analytics
 RUN flutter precache
 
 RUN flutter doctor -v
-
