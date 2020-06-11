@@ -1,20 +1,18 @@
 FROM debian:buster-slim
 
-ENV FLUTTER_CHANNEL=dev
-ENV FLUTTER_VERSION=1.20.0-0.0.pre-${FLUTTER_CHANNEL}
+ENV FLUTTER_CHANNEL=master
 
 WORKDIR /
 
 RUN apt-get update -y
 RUN apt-get install -y \
   git \
-  xz-utils \
-  wget \
+  bash \
+  curl \
+  unzip \
   lcov
 
-RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz \
-    && tar xf flutter.tar.xz -C / \
-    && rm flutter.tar.xz
+RUN git clone -b master https://github.com/flutter/flutter.git
   
 ENV PATH=$PATH:/flutter/bin/cache/dart-sdk/bin:/flutter/bin
 
@@ -23,4 +21,3 @@ RUN flutter config  --no-analytics
 RUN flutter precache
 
 RUN flutter doctor -v
-
