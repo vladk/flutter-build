@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM kvlad/android-sdk
 
 ENV FLUTTER_CHANNEL=master
 
