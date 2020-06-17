@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM kvlad/android-sdk
 
 ENV FLUTTER_CHANNEL=beta
 ENV FLUTTER_VERSION=1.19.0-4.1.pre-${FLUTTER_CHANNEL}
